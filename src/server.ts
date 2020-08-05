@@ -1,12 +1,11 @@
-import express, { response } from 'express';
+import express from 'express';
+import routes from './routes';
 
 const app = express();
 
 app.use(express.json());
 
-app.get('/users', (request, response) => {
-  return response.json({ messase: 'Hello Word' });
-});
+app.use(routes);
 
 const port = 3002;
 app.listen(port);
