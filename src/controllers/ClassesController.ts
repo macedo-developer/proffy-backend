@@ -13,7 +13,6 @@ interface ScheduleItem {
 export default class ClassesController {
   async index(request: Request, response: Response) {
     const filters = request.query;
-    console.log(filters);
 
     if (!filters.week_day || !filters.subject || !filters.time) {
       return response
@@ -38,7 +37,7 @@ export default class ClassesController {
       })
       .where('classes.subject', '=', subject)
       .join('users', 'classes.user_id', '=', 'users.id')
-      .select(['users.*', 'classes.*']);
+      .select(['classes.*', 'users.*']);
 
     return response.json(classes);
   }
