@@ -9,4 +9,18 @@ export default class UsersControllers {
 
     return response.status(201).send();
   }
+
+  async show(request: Request, response: Response) {
+    const filter = request.query;
+
+    const email = filter.email as string;
+    const password = filter.password as string;
+
+    const user = db('users')
+      .select('*')
+      .where('email', email)
+      .where('password', password);
+
+    return response.json(user);
+  }
 }
