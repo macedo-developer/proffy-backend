@@ -5,7 +5,15 @@ export default class UsersControllers {
   async create(request: Request, response: Response) {
     const { name, last_name, email, password } = request.body;
 
-    await db('users').insert({ name, last_name, email, password });
+    await db('users').insert({
+      name,
+      last_name,
+      email,
+      password,
+      bio: '',
+      avatar: '',
+      whatsapp: '',
+    });
 
     return response.status(201).send();
   }
