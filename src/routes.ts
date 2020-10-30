@@ -10,6 +10,7 @@ const classesController = new ClassesController();
 const connectionsController = new ConnectionsController();
 const usersControllers = new UsersControllers();
 
+routes.get('/user', usersControllers.show);
 routes.post('/users', usersControllers.create);
 
 routes.get('/classes', classesController.index);

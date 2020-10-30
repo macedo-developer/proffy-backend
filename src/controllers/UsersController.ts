@@ -24,10 +24,10 @@ export default class UsersControllers {
     const email = filter.email as string;
     const password = filter.password as string;
 
-    const user = db('users')
-      .select('*')
+    const user = await db('users')
       .where('email', email)
-      .where('password', password);
+      .where('password', password)
+      .first();
 
     return response.json(user);
   }
