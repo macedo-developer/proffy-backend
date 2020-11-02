@@ -12,6 +12,7 @@ const usersControllers = new UsersControllers();
 
 routes.get('/user', usersControllers.show);
 routes.post('/users', usersControllers.create);
+routes.put('/users/:id', usersControllers.updateUser);
 
 routes.get('/classes', classesController.index);
 routes.post('/classes', classesController.create);
