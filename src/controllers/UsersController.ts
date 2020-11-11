@@ -36,6 +36,10 @@ export default class UsersControllers {
       .where('password', password)
       .first();
 
+    if (!user) {
+      return response.status(404).json(user);
+    }
+
     return response.json(user);
   }
 
