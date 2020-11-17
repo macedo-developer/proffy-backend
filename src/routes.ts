@@ -11,6 +11,7 @@ const connectionsController = new ConnectionsController();
 const usersControllers = new UsersControllers();
 
 routes.get('/user', usersControllers.show);
+routes.get('/user/:id', usersControllers.showUser);
 routes.post('/users', usersControllers.create);
 routes.put('/users/:id', usersControllers.updateUser);
 
