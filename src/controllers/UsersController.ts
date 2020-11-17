@@ -89,4 +89,14 @@ export default class UsersControllers {
         .json('Unexpected error while updating profile');
     }
   }
+  async showUser(request: Request, response: Response) {
+    const { id } = request.params;
+
+    const user = await db('users')
+      .join('classes', 'classes.user_id', '=', 'users.id')
+      .where('users.id', '=', id)
+      .select(['classes.*', 'users.*']);
+
+    return response.json(user);
+  }
 }
